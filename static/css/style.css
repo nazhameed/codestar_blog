@@ -159,3 +159,42 @@ body {
 .approval {
     color: rgb(222, 146, 168);
 }
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.375rem 0.75rem;
+    margin: 0.1875rem 0;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.edit-comment {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.delete-comment {
+    background-color: #dc3545;
+    color: #fff;
+}

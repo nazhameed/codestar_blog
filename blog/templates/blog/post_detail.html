@@ -65,23 +65,17 @@
         data-comment-id="{{ comment.id }}">
   Edit
 </button>
-
 <button type="button"
         class="btn btn-sm btn-danger delete-comment"
         data-comment-id="{{ comment.id }}">
   Delete
 </button>
-          {% if not comment.approved and comment.author == user %}
-          <p class="approval">
-            This comment is awaiting approval
-          </p>
-          {% endif %}
-          {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-delete"
-    comment_id="{{ comment.id }}">Delete</button>
-  <button class="btn btn-edit"
-    comment_id="{{ comment.id }}">Edit</button>
-  {% endif %}
+
+{% if not comment.approved and comment.author == user %}
+  <p class="approval">
+    This comment is awaiting approval
+  </p>
+{% endif %}
         </div>
         <!-- Our for loop ends here -->
         {% endfor %}
