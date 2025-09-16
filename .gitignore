@@ -1,0 +1,10 @@
+
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+env.py
+.venv/
+staticfiles/
+codestar_blog_backup/
+
