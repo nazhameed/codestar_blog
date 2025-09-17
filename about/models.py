@@ -42,10 +42,10 @@ class Comment(models.Model):
     """
     Stores comments related to a blog post.
     ForeignKey:
-        post -- the Post this comment is associated with.
+        post -- the Post this comment is associated with (from blog app).
         author -- the User who wrote the comment.
     """
-    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='about_comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
