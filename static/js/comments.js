@@ -13,26 +13,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const basePath = window.location.pathname.replace(/\/$/, ""); // /post-slug
 
   // Edit
-  for (let button of editButtons) {
-    button.addEventListener("click", (e) => {
+  editButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
       e.preventDefault();
-      const commentId = e.currentTarget.dataset.commentId;
-      const contentEl = document.getElementById(`comment${commentId}`);
-      const commentContent = contentEl ? contentEl.innerText.trim() : "";
-
-      if (commentText) commentText.value = commentContent;
+      const id = btn.dataset.comment_id || btn.getAttribute("data-comment_id");
+      const contentEl = document.getElementById(`comment${id}`);
+      if (commentText && contentEl) commentText.value = contentEl.innerText.trim();
       if (submitButton) submitButton.innerText = "Update";
-      if (commentForm) commentForm.setAttribute("action", `${basePath}/edit_comment/${commentId}`);
+      if (commentForm) commentForm.setAttribute("action", `${basePath}/edit_comment/${id}/`);
     });
-  }
+  });
 
   // Delete
-  for (let button of deleteButtons) {
-    button.addEventListener("click", (e) => {
+  deleteButtons.forEach(btn => {
+    btn.addEventListener("click", e => {
       e.preventDefault();
-      const commentId = e.currentTarget.dataset.commentId;
-      if (deleteConfirm) deleteConfirm.href = `${basePath}/delete_comment/${commentId}`;
+      const id = btn.dataset.comment_id || btn.getAttribute("data-comment_id");
+      if (deleteConfirm) deleteConfirm.href = `${basePath}/delete_comment/${id}/`;
       if (deleteModal) deleteModal.show();
     });
-  }
+  });
 });
